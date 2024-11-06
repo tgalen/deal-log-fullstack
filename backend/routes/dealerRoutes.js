@@ -7,12 +7,7 @@ const {
   deleteDealer,
 } = require("../controllers/dealerController");
 
-router.get("/", getDealers);
-
-router.post("/", createDealer);
-
-router.put("/:id", updateDealer);
-
-router.delete("/:id", deleteDealer);
+router.route("/").get(getDealers).post(createDealer);
+router.route("/:id").put(updateDealer).delete(deleteDealer);
 
 module.exports = router;
