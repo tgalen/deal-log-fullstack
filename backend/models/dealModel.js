@@ -21,4 +21,4 @@ const dealSchema = mongoose.Schema(
   }
 );
 
-module.exports = dealSchema;
+module.exports = mongoose.model("Deal", dealSchema);
