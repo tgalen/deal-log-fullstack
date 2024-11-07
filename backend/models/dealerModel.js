@@ -10,6 +10,9 @@ const dealerSchema = mongoose.Schema({
   users: {
     type: String,
   },
+  dealerAdmin: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Dealer", dealerSchema);
