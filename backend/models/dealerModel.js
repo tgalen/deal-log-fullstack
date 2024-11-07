@@ -7,9 +7,12 @@ const dealerSchema = mongoose.Schema({
   dealerGroup: {
     type: String,
   },
-  users: {
-    type: String,
-  },
+  users: [
+    {
+      name: { type: String },
+      isActive: { type: Boolean },
+    },
+  ],
   dealerAdmin: {
     type: String,
   },
@@ -20,6 +23,9 @@ const dealerSchema = mongoose.Schema({
       date: { type: String },
       vin: { type: String },
       flc: { type: String },
+      lender: { type: String },
+      term: { type: Number },
+      newOrUsed: { type: String },
       buyRate: { type: Number },
       sellRate: { type: Number },
       reserve: { type: Number },
@@ -34,6 +40,9 @@ const dealerSchema = mongoose.Schema({
       advancedProtectionPlus: { type: Number },
       multiCoverage: { type: Number },
       totalBackendGross: { type: Number },
+      funded: { type: Boolean },
+      financeManager: { type: String },
+      salesperson: { type: String },
     },
   ],
 });
