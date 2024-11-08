@@ -23,7 +23,7 @@ const dealerSchema = mongoose.Schema({
     {
       dealNumber: { type: Number },
       customerName: { type: String },
-      date: { type: String },
+      dateOfDelivery: { type: String },
       vin: { type: String },
       flc: { type: String },
       lender: { type: String },
@@ -32,7 +32,10 @@ const dealerSchema = mongoose.Schema({
       buyRate: { type: Number },
       sellRate: { type: Number },
       reserve: { type: Number },
-      vsc: { type: Number },
+      vsc: {
+        gross: { type: Number },
+        remitted: { type: Boolean },
+      },
       gap: { type: Number },
       tireWheel: { type: Number },
       key: { type: Number },
