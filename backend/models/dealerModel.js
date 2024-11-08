@@ -13,9 +13,12 @@ const dealerSchema = mongoose.Schema({
       isActive: { type: Boolean },
     },
   ],
-  dealerAdmin: {
-    type: String,
-  },
+  dealerAdmin: [
+    {
+      type: String,
+      isActive: Boolean,
+    },
+  ],
   deals: [
     {
       dealNumber: { type: Number },
