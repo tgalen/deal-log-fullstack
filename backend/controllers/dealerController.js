@@ -26,7 +26,18 @@ const createDealer = asyncHandler(async (req, res) => {
 
 // PUT
 const updateDealer = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: `Update dealer ${req.params.id}` });
+  const dealer = await Dealer.findById(req.params.id);
+
+  if (!dealer) {
+    res.status(400);
+    throw new Error("Dealer not found");
+  }
+
+  const updatedDealer = Dealer.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+
+  res.status(200).json(updatedDealer);
 });
 
 // DELETE
