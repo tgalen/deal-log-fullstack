@@ -33,16 +33,25 @@ const updateDealer = asyncHandler(async (req, res) => {
     throw new Error("Dealer not found");
   }
 
-  const updatedDealer = Dealer.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
+  //   const updatedDealer = Dealer.findByIdAndUpdate(req.params.id, req.body, {
+  //     new: true,
+  //   });
 
-  res.status(200).json(updatedDealer);
+  res.status(200).json({ message: "Dealer Updated" });
 });
 
 // DELETE
 const deleteDealer = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: `Delete dealer ${req.params.id}` });
+  const dealer = await Dealer.findById(req.params.id);
+  console.log(dealer);
+  if (!dealer) {
+    res.status(400);
+    throw new Error("Dealer not found");
+  }
+
+  await dealer.deleteOne();
+
+  res.status(200).json({ message: `Deleted dealer ${req.params.id}` });
 });
 
 module.exports = {
