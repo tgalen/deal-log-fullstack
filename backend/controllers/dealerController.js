@@ -25,6 +25,8 @@ const createDealer = asyncHandler(async (req, res) => {
 });
 
 // PUT
+// need more controllers for more specific updates
+// add or delete user from dealer??
 const updateDealer = asyncHandler(async (req, res) => {
   const dealer = await Dealer.findById(req.params.id);
 
