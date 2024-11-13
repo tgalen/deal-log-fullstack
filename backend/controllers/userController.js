@@ -59,7 +59,15 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // Protect the route by checking the token
 const getMe = asyncHandler(async (req, res) => {
-  res.json({ message: "Get user data" });
+  const { _id, name, email, role } = await User.findById(req.user.id);
+  console.log(req.user);
+
+  res.status(200).json({
+    id: _id,
+    name,
+    email,
+    role,
+  });
 });
 
 // Generate JWT
