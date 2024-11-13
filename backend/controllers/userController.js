@@ -49,6 +49,7 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);
@@ -56,6 +57,7 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
+// Protect the route by checking the token
 const getMe = asyncHandler(async (req, res) => {
   res.json({ message: "Get user data" });
 });
