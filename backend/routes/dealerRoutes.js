@@ -6,8 +6,9 @@ const {
   updateDealer,
   deleteDealer,
 } = require("../controllers/dealerController");
+const { protect } = require("../middleware/authMiddleware");
 
-router.route("/").get(getDealers).post(createDealer);
-router.route("/:id").put(updateDealer).delete(deleteDealer);
+router.route("/").get(protect, getDealers).post(createDealer);
+router.route("/:id").put(protect, updateDealer).delete(protect, deleteDealer);
 
 module.exports = router;
