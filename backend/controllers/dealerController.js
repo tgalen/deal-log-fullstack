@@ -20,6 +20,7 @@ const createDealer = asyncHandler(async (req, res) => {
 
   const dealer = await Dealer.create({
     dealerName: req.body.dealerName,
+    dealerAdmin: req.user.id,
   });
   res.status(200).json({ dealer });
 });
