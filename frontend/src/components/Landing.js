@@ -1,6 +1,4 @@
-import React from "react";
-
-export const Landing = () => {
+const Landing = () => {
   return <div>Landing</div>;
 };
 
