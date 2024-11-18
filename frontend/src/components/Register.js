@@ -47,7 +47,7 @@ const Register = ({ setLockedInLoggedInUser }) => {
   const paperStyle = {
     padding: "30px 20px",
     width: "400px",
-    margin: "30px auto",
+    margin: "100px auto",
     textAlign: "center",
     maxWidth: "80%",
   };
