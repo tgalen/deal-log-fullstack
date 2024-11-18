@@ -1,4 +1,6 @@
-const Register = () => {
+import { useState } from "react";
+
+const Register = ({ setLockedInLoggedInUser }) => {
   return <div>Register</div>;
 };
 

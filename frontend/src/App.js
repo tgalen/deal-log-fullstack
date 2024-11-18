@@ -14,7 +14,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/register" element={<Register />} />
+          <Route
+            path="/register"
+            element={
+              <Register setLockedInLoggedInUser={setLockedInLoggedInUser} />
+            }
+          />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
