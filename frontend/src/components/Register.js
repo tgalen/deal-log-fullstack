@@ -28,6 +28,7 @@ const Register = ({ setLockedInLoggedInUser }) => {
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+    console.log(formData);
   };
 
   const handleRegisterSubmit = async (e) => {

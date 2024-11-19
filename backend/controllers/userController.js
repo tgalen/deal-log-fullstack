@@ -4,8 +4,8 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
-  if (!name || !email || !password) {
+  const { firstName, lastName, email, password } = req.body;
+  if (!firstName || !lastName || !email || !password) {
     res.status(400);
     throw new Error("Please check all fields");
   }
@@ -21,7 +21,8 @@ const registerUser = asyncHandler(async (req, res) => {
   console.log(`salt = ${salt}`);
   const hashedPassword = await bcrypt.hash(password, salt);
   const user = await User.create({
-    name,
+    firstName,
+    lastName,
     email,
     password: hashedPassword,
   });
@@ -29,7 +30,8 @@ const registerUser = asyncHandler(async (req, res) => {
   if (user) {
     res.status(201).json({
       _id: user.id,
-      name: user.name,
+      firstName: user.firstName,
+      lastName: user.lastName,
       email: user.email,
       token: generateToken(user._id),
     });
@@ -47,7 +49,8 @@ const loginUser = asyncHandler(async (req, res) => {
   if (user && (await bcrypt.compare(password, user.password))) {
     res.json({
       _id: user.id,
-      name: user.name,
+      firstName: user.firstName,
+      lastName: user.lastName,
       email: user.email,
       token: generateToken(user._id),
     });
@@ -59,12 +62,15 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // Protect the route by checking the token
 const getMe = asyncHandler(async (req, res) => {
-  const { _id, name, email, role } = await User.findById(req.user.id);
+  const { _id, firstName, lastName, email, role } = await User.findById(
+    req.user.id
+  );
   console.log(req.user);
 
   res.status(200).json({
     id: _id,
-    name,
+    firstName,
+    lastName,
     email,
     role,
   });
