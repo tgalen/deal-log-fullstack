@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { REGISTER_API } from "../constants/constants";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-// import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
+import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -57,6 +57,7 @@ const Register = ({ setLockedInLoggedInUser }) => {
     <Box>
       <Paper elevation={20} style={paperStyle}>
         <Box component="form" onSubmit={handleRegisterSubmit}>
+          <PersonAddAlt1Icon />
           <h2>Register</h2>
           <Typography variant="caption">
             Please fill out this form to register an account.

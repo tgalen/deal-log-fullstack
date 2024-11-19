@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-//import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
+import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -53,6 +53,7 @@ const Login = ({ setLockedInLoggedInUser }) => {
     <Box>
       <Paper elevation={20} style={paperStyle}>
         <Box component="form" onSubmit={handleLoginSubmit}>
+          <PersonAddAlt1Icon />
           <h2>Login</h2>
           <Typography variant="caption">
             Please fill out this form to login.
