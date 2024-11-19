@@ -20,7 +20,12 @@ function App() {
               <Register setLockedInLoggedInUser={setLockedInLoggedInUser} />
             }
           />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={
+              <Login setLockedInLoggedInUser={setLockedInLoggedInUser} />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
