@@ -38,7 +38,7 @@ export const Navbar = ({ loggedInLockedInUser, setLoggedInLockedInUser }) => {
     display: "none",
     alignItems: "center",
     justifyContent: "center",
-    gap: "15px",
+    gap: "30px",
     display: "flex",
     // [theme.breakpoints.up("sm")]: {
     //  display: "flex",
@@ -125,7 +125,6 @@ export const Navbar = ({ loggedInLockedInUser, setLoggedInLockedInUser }) => {
         {/* <MenuItem>Profile</MenuItem>
     <MenuItem>My account</MenuItem> */}
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
-        <MenuItem onClick={handleTodoLink}>Todos</MenuItem>
       </Menu>
     </AppBar>
   );
