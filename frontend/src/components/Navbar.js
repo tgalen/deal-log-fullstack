@@ -39,6 +39,7 @@ export const Navbar = ({ loggedInLockedInUser, setLoggedInLockedInUser }) => {
     alignItems: "center",
     justifyContent: "center",
     gap: "15px",
+    display: "flex",
     // [theme.breakpoints.up("sm")]: {
     //  display: "flex",
     // },
@@ -48,6 +49,7 @@ export const Navbar = ({ loggedInLockedInUser, setLoggedInLockedInUser }) => {
     display: "flex",
     alignItems: "center",
     gap: "10px",
+    display: "none",
     // [theme.breakpoints.up("sm")]: {
     // display: "none",
     //},
@@ -93,7 +95,7 @@ export const Navbar = ({ loggedInLockedInUser, setLoggedInLockedInUser }) => {
             </Link>
           </Icons>
         )}
-        {loggedInLockedInUser ? (
+        {/* {loggedInLockedInUser ? (
           <UserBox onClick={(e) => setNavMenuOpen(true)}>
             <MoreHorizSharpIcon />
           </UserBox>
@@ -104,7 +106,7 @@ export const Navbar = ({ loggedInLockedInUser, setLoggedInLockedInUser }) => {
               Login
             </Link>
           </UserBox>
-        )}
+        )} */}
       </StyledToolbar>
       <Menu
         id="positioned-menu"
