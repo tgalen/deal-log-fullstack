@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import { LOGIN_API } from "../constants/constants";
 
-const Login = ({ setLockedInLoggedInUser }) => {
+const Login = ({ setLoggedInLockedInUser }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -33,7 +33,7 @@ const Login = ({ setLockedInLoggedInUser }) => {
 
     if (response.data) {
       localStorage.setItem("lockedInUser", JSON.stringify(response.data));
-      setLockedInLoggedInUser(response.data);
+      setLoggedInLockedInUser(response.data);
       console.log(response.data);
       navigate("/");
     } else {

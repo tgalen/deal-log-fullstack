@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 
-const Register = ({ setLockedInLoggedInUser }) => {
+const Register = ({ setLoggedInLockedInUser }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -37,7 +37,7 @@ const Register = ({ setLockedInLoggedInUser }) => {
 
     if (response.data) {
       localStorage.setItem("lockedInUser", JSON.stringify(response.data));
-      setLockedInLoggedInUser(response.data);
+      setLoggedInLockedInUser(response.data);
       console.log(response.data);
       navigate("/");
     } else {

@@ -6,7 +6,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 
 function App() {
-  const [lockedInLoggedInUser, setLockedInLoggedInUser] = useState(null);
+  const [loggedInLockedInUser, setLoggedInLockedInUser] = useState(null);
   const lockedInUser = JSON.parse(localStorage.getItem("lockedInUser"));
 
   return (
@@ -17,13 +17,13 @@ function App() {
           <Route
             path="/register"
             element={
-              <Register setLockedInLoggedInUser={setLockedInLoggedInUser} />
+              <Register setLoggedInLockedInUser={setLoggedInLockedInUser} />
             }
           />
           <Route
             path="/login"
             element={
-              <Login setLockedInLoggedInUser={setLockedInLoggedInUser} />
+              <Login setLoggedInLockedInUser={setLoggedInLockedInUser} />
             }
           />
         </Routes>
