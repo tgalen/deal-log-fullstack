@@ -14,6 +14,7 @@ import Link from "@mui/material/Link";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 import Person2Icon from "@mui/icons-material/Person2";
+import LockIcon from "@mui/icons-material/Lock";
 import { useNavigate } from "react-router-dom";
 import MoreHorizSharpIcon from "@mui/icons-material/MoreHorizSharp";
 
@@ -29,10 +30,10 @@ export const Navbar = ({ loggedInLockedInUser, setLoggedInLockedInUser }) => {
     navigate("/");
   };
 
-  const handleTodoLink = () => {
-    setNavMenuOpen(false);
-    navigate("/");
-  };
+  //   const handleTodoLink = () => {
+  //     setNavMenuOpen(false);
+  //     navigate("/");
+  //   };
 
   const Icons = styled(Box)(({ theme }) => ({
     display: "none",
@@ -45,15 +46,15 @@ export const Navbar = ({ loggedInLockedInUser, setLoggedInLockedInUser }) => {
     // },
   }));
 
-  const UserBox = styled(Box)(({ theme }) => ({
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-    display: "none",
-    // [theme.breakpoints.up("sm")]: {
-    // display: "none",
-    //},
-  }));
+  //   const UserBox = styled(Box)(({ theme }) => ({
+  //     display: "flex",
+  //     alignItems: "center",
+  //     gap: "10px",
+  //     display: "none",
+  //     // [theme.breakpoints.up("sm")]: {
+  //     // display: "none",
+  //     //},
+  //   }));
 
   const StyledToolbar = styled(Toolbar)({
     display: "flex",
@@ -67,7 +68,7 @@ export const Navbar = ({ loggedInLockedInUser, setLoggedInLockedInUser }) => {
       <StyledToolbar>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
           <Link href="/" color="inherit" underline="none">
-            LOCKED IN
+            LOCKED IN <LockIcon />
           </Link>
         </Typography>
         <Link href="/" color="inherit">
