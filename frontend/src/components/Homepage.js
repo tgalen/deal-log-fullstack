@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 const HomePage = ({ loggedInLockedInUser }) => {
   return (
     <Container maxWidth="sm">
-      <Card sx={{ display: "flex" }}>
+      <Card sx={{ display: "flex", marginTop: "20px" }}>
         {/* this should be it's own Component */}
         <Box>
           <CardContent>
