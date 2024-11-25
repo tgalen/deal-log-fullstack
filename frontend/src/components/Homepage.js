@@ -1,9 +1,22 @@
+import Container from "@mui/material/Container";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+
 const Homepage = ({ loggedInLockedInUser }) => {
   return (
-    <div>
-      Homepage <br />
-      {`Welcome ${loggedInLockedInUser.firstName} ${loggedInLockedInUser.lastName}`}
-    </div>
+    <Container maxWidth="sm">
+      <Card sx={{ display: "flex" }}>
+        <Box>
+          <CardContent>
+            <Typography component="div" variant="h6">
+              Faulkner Toyota
+            </Typography>
+          </CardContent>
+        </Box>
+      </Card>
+    </Container>
   );
 };
 
