@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Landing from "./components/Landing";
-import Homepage from "./components/Homepage";
+import HomePage from "./components/Homepage";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import { Navbar } from "./components/Navbar";
@@ -27,7 +27,7 @@ function App() {
             path="/"
             element={
               loggedInLockedInUser ? (
-                <Homepage loggedInLockedInUser={loggedInLockedInUser} />
+                <HomePage loggedInLockedInUser={loggedInLockedInUser} />
               ) : (
                 <Landing />
               )

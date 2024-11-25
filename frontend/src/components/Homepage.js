@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const Homepage = ({ loggedInLockedInUser }) => {
+const HomePage = ({ loggedInLockedInUser }) => {
   return (
     <Container maxWidth="sm">
       <Card sx={{ display: "flex" }}>
@@ -21,4 +21,4 @@ const Homepage = ({ loggedInLockedInUser }) => {
   );
 };
 
-export default Homepage;
+export default HomePage;
