@@ -8,6 +8,7 @@ const Homepage = ({ loggedInLockedInUser }) => {
   return (
     <Container maxWidth="sm">
       <Card sx={{ display: "flex" }}>
+        {/* this should be it's own Component */}
         <Box>
           <CardContent>
             <Typography component="div" variant="h6">

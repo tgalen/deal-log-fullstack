@@ -18,6 +18,16 @@ const dealerSchema = mongoose.Schema(
         timestamps: true,
       },
     ],
+    pendingUsers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        isActive: { type: Boolean },
+        ref: "User",
+      },
+      {
+        timestamps: true,
+      },
+    ],
     dealerAdmin: [
       {
         type: mongoose.Schema.Types.ObjectId,
