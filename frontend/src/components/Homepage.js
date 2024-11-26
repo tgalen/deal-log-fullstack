@@ -40,6 +40,13 @@ const HomePage = ({ loggedInLockedInUser }) => {
           </CardContent>
         </Box>
       </Card>
+      <Card sx={{ display: "flex", marginTop: "20px" }}>
+        <Box>
+          <CardContent>
+            <Typography>Create New Dealer + Icon</Typography>
+          </CardContent>
+        </Box>
+      </Card>
     </Container>
   );
 };
