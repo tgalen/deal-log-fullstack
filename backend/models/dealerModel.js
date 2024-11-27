@@ -5,6 +5,9 @@ const dealerSchema = mongoose.Schema(
     dealerName: {
       type: String,
     },
+    dealerNumber: {
+      type: Number,
+    },
     dealerGroup: {
       type: String,
     },
