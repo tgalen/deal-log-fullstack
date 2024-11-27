@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import CreateNewDealer from "./CreateNewDealer";
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -47,6 +48,7 @@ const HomePage = ({ loggedInLockedInUser }) => {
           </CardContent>
         </Box>
       </Card>
+      <CreateNewDealer loggedInLockedInUser={loggedInLockedInUser} />
     </Container>
   );
 };
