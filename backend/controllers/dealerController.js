@@ -14,10 +14,16 @@ const getDealers = asyncHandler(async (req, res) => {
 // POST
 const createDealer = asyncHandler(async (req, res) => {
   //   console.log(req.body);
+  // Consider adding a check for a dealer with existing name or number
 
   if (!req.body.dealerName) {
     res.status(400);
-    throw new Error("Please add a text field.");
+    throw new Error("Please add a Dealer Name.");
+  }
+
+  if (!req.body.dealerNumber) {
+    res.status(400);
+    throw new Error("Please add a Dealer Number.");
   }
 
   const dealer = await Dealer.create({
