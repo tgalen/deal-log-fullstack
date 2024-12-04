@@ -44,11 +44,11 @@ const HomePage = ({ loggedInLockedInUser }) => {
       <Card sx={{ display: "flex", marginTop: "20px" }}>
         <Box>
           <CardContent>
+            <CreateNewDealer loggedInLockedInUser={loggedInLockedInUser} />
             <Typography>Create New Dealer + Icon</Typography>
           </CardContent>
         </Box>
       </Card>
-      <CreateNewDealer loggedInLockedInUser={loggedInLockedInUser} />
     </Container>
   );
 };
