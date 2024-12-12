@@ -8,9 +8,6 @@ const dealerSchema = mongoose.Schema(
     dealerNumber: {
       type: Number,
     },
-    dealerGroup: {
-      type: String,
-    },
     users: [
       {
         type: mongoose.Schema.Types.ObjectId,
