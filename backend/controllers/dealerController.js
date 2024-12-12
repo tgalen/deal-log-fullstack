@@ -42,10 +42,15 @@ const createDealer = asyncHandler(async (req, res) => {
 // PUT
 // need more controllers for more specific updates
 // add or delete user from dealer??
+// currently adds a user by ObjectId -- needs more functionality
 const updateDealer = asyncHandler(async (req, res) => {
-  const dealer = await Dealer.findById(req.params.id);
+  const updatedDealer = await Dealer.findByIdAndUpdate(
+    { _id: req.params.id },
+    { $push: { users: req.body.selectedUser } },
+    { new: true }
+  );
 
-  if (!dealer) {
+  if (!updatedDealer) {
     res.status(400);
     throw new Error("Dealer not found");
   }
