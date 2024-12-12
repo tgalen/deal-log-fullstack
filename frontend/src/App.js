@@ -5,17 +5,38 @@ import Landing from "./components/Landing";
 import HomePage from "./components/Homepage";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import DealerHomePage from "./components/DealerHomePage";
 import { Navbar } from "./components/Navbar";
+import { DEALERS_API } from "./constants/constants";
+import axios from "axios";
 
 function App() {
   const [loggedInLockedInUser, setLoggedInLockedInUser] = useState(null);
   const [loginOpen, setLoginOpen] = useState(false);
+  const [userDealers, setUserDealers] = useState(null);
+  const config = loggedInLockedInUser && {
+    headers: {
+      Authorization: `Bearer ${loggedInLockedInUser.token}`,
+    },
+  };
 
   const lockedInUser = JSON.parse(localStorage.getItem("lockedInUser"));
+
+  const getUserDealers = async () => {
+    const response = await axios.get(DEALERS_API, config);
+
+    if (response) {
+      setUserDealers(response.data);
+    }
+  };
 
   useEffect(() => {
     lockedInUser && setLoggedInLockedInUser(lockedInUser);
   }, []);
+
+  useEffect(() => {
+    loggedInLockedInUser && getUserDealers();
+  }, [loggedInLockedInUser]);
 
   return (
     <div className="App">
@@ -31,11 +52,18 @@ function App() {
             path="/"
             element={
               loggedInLockedInUser ? (
-                <HomePage loggedInLockedInUser={loggedInLockedInUser} />
+                <HomePage
+                  loggedInLockedInUser={loggedInLockedInUser}
+                  userDealers={userDealers}
+                />
               ) : (
                 <Landing />
               )
             }
+          />
+          <Route
+            path="dealer/:id"
+            element={<DealerHomePage userDealers={userDealers} />}
           />
           <Route
             path="/register"
