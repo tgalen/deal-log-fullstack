@@ -31,16 +31,21 @@ const HomePage = ({ loggedInLockedInUser }) => {
 
   return (
     <Container maxWidth="sm">
-      <Card sx={{ display: "flex", marginTop: "20px" }}>
-        {/* this should be it's own Component */}
-        <Box>
-          <CardContent>
-            <Typography component="div" variant="h6">
-              Faulkner Toyota
-            </Typography>
-          </CardContent>
-        </Box>
-      </Card>
+      {userDealers &&
+        userDealers.map((dealer) => {
+          return (
+            <Card sx={{ display: "flex", marginTop: "20px" }}>
+              {/* this should be it's own Component */}
+              <Box>
+                <CardContent>
+                  <Typography component="div" variant="h6">
+                    {dealer.dealerName}
+                  </Typography>
+                </CardContent>
+              </Box>
+            </Card>
+          );
+        })}
       <Card sx={{ display: "flex", marginTop: "20px" }}>
         <Box>
           <CardContent>
