@@ -59,6 +59,7 @@ function App() {
                   loggedInLockedInUser={loggedInLockedInUser}
                   userDealers={userDealers}
                   setTargetDealer={setTargetDealer}
+                  targetDealer={targetDealer}
                 />
               ) : (
                 <Landing />

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import CreateNewDealer from "./CreateNewDealer";
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
@@ -7,7 +8,12 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const HomePage = ({ loggedInLockedInUser, userDealers, setTargetDealer }) => {
+const HomePage = ({
+  loggedInLockedInUser,
+  userDealers,
+  setTargetDealer,
+  targetDealer,
+}) => {
   // const [userDealers, setUserDealers] = useState(null);
   // const config = loggedInLockedInUser && {
   //   headers: {
@@ -27,7 +33,14 @@ const HomePage = ({ loggedInLockedInUser, userDealers, setTargetDealer }) => {
   //   loggedInLockedInUser && getUserDealers();
   // }, []);
   // console.log(userDealers);
+  const navigate = useNavigate();
 
+  const handleDealerClick = (d) => {
+    setTargetDealer(d);
+    navigate(`/dealer/${d._id}`);
+    console.log(`setting target to ${d}`);
+  };
+  console.log(targetDealer);
   return (
     <Container maxWidth="sm">
       {userDealers &&
@@ -36,13 +49,11 @@ const HomePage = ({ loggedInLockedInUser, userDealers, setTargetDealer }) => {
             <Card
               sx={{ display: "flex", marginTop: "20px" }}
               key={dealer.dealerName}
+              onClick={() => {
+                handleDealerClick(dealer);
+              }}
             >
-              <CardActionArea
-                href={`/dealer/${dealer._id}`}
-                onClick={() => {
-                  setTargetDealer(dealer);
-                }}
-              >
+              <CardActionArea>
                 {/* this should be it's own Component */}
                 <Box>
                   <CardContent>
