@@ -5,7 +5,11 @@ const Dealer = require("../models/dealerModel");
 // GET
 const getDealers = asyncHandler(async (req, res) => {
   const dealers = await Dealer.find({
-    $or: [{ users: req.user.id }, { pendingUsers: req.user.id }],
+    $or: [
+      { users: req.user.id },
+      { pendingUsers: req.user.id },
+      { dealerAdmin: req.user.id },
+    ],
   });
 
   res.status(200).json(dealers);
