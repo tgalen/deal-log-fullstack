@@ -13,6 +13,10 @@ function App() {
 
   const lockedInUser = JSON.parse(localStorage.getItem("lockedInUser"));
 
+  useEffect(() => {
+    lockedInUser && setLoggedInLockedInUser(lockedInUser);
+  });
+
   return (
     <div className="App">
       <BrowserRouter>

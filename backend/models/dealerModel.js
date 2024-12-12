@@ -41,6 +41,11 @@ const dealerSchema = mongoose.Schema(
         timestamps: true,
       },
     ],
+    manufacturer: [
+      {
+        type: String,
+      },
+    ],
     deals: [
       {
         dealNumber: { type: Number },
