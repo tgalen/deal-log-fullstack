@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     lockedInUser && setLoggedInLockedInUser(lockedInUser);
-  });
+  }, []);
 
   return (
     <div className="App">
