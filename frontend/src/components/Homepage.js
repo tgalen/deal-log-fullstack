@@ -7,7 +7,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const HomePage = ({ loggedInLockedInUser, userDealers }) => {
+const HomePage = ({ loggedInLockedInUser, userDealers, setTargetDealer }) => {
   // const [userDealers, setUserDealers] = useState(null);
   // const config = loggedInLockedInUser && {
   //   headers: {
@@ -37,7 +37,12 @@ const HomePage = ({ loggedInLockedInUser, userDealers }) => {
               sx={{ display: "flex", marginTop: "20px" }}
               key={dealer.dealerName}
             >
-              <CardActionArea href={`/dealer/${dealer._id}`}>
+              <CardActionArea
+                href={`/dealer/${dealer._id}`}
+                onClick={() => {
+                  setTargetDealer(dealer);
+                }}
+              >
                 {/* this should be it's own Component */}
                 <Box>
                   <CardContent>

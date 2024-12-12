@@ -14,11 +14,14 @@ function App() {
   const [loggedInLockedInUser, setLoggedInLockedInUser] = useState(null);
   const [loginOpen, setLoginOpen] = useState(false);
   const [userDealers, setUserDealers] = useState(null);
+  const [targetDealer, setTargetDealer] = useState(null);
   const config = loggedInLockedInUser && {
     headers: {
       Authorization: `Bearer ${loggedInLockedInUser.token}`,
     },
   };
+
+  console.log(targetDealer);
 
   const lockedInUser = JSON.parse(localStorage.getItem("lockedInUser"));
 
@@ -55,6 +58,7 @@ function App() {
                 <HomePage
                   loggedInLockedInUser={loggedInLockedInUser}
                   userDealers={userDealers}
+                  setTargetDealer={setTargetDealer}
                 />
               ) : (
                 <Landing />
@@ -63,7 +67,7 @@ function App() {
           />
           <Route
             path="dealer/:id"
-            element={<DealerHomePage userDealers={userDealers} />}
+            element={<DealerHomePage targetDealer={targetDealer} />}
           />
           <Route
             path="/register"
