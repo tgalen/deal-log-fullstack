@@ -5,7 +5,7 @@ const DealerHomePage = ({ userDealers }) => {
 
   const userDealer =
     userDealers && userDealers.filter((dealer) => dealer._id === dealerID);
-  return <div>{userDealer[0].dealerName}</div>;
+  return <div>{userDealers && userDealer[0].dealerName}</div>;
 };
 
 export default DealerHomePage;
