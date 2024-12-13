@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CreateNewDealer from "./CreateNewDealer";
 import Container from "@mui/material/Container";
@@ -14,31 +13,12 @@ const HomePage = ({
   setTargetDealer,
   targetDealer,
 }) => {
-  // const [userDealers, setUserDealers] = useState(null);
-  // const config = loggedInLockedInUser && {
-  //   headers: {
-  //     Authorization: `Bearer ${loggedInLockedInUser.token}`,
-  //   },
-  // };
-
-  // const getUserDealers = async () => {
-  //   const response = await axios.get(DEALERS_API, config);
-
-  //   if (response) {
-  //     setUserDealers(response.data);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   loggedInLockedInUser && getUserDealers();
-  // }, []);
-  // console.log(userDealers);
   const navigate = useNavigate();
 
   const handleDealerClick = (d) => {
     setTargetDealer(d);
     navigate(`/dealer/${d._id}`);
-    console.log(`setting target to ${d}`);
+    console.log(`setting target to ${d.dealerName}`);
   };
   console.log(targetDealer);
   return (

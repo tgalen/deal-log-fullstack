@@ -21,7 +21,7 @@ function App() {
     },
   };
 
-  console.log(targetDealer);
+  targetDealer && console.log(targetDealer.dealerName);
 
   const lockedInUser = JSON.parse(localStorage.getItem("lockedInUser"));
 
