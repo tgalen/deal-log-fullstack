@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 
 const dealerSchema = mongoose.Schema(
   {
-    organization: ObjectId,
+    organizationId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Organization",
+      required: true,
+    },
     name: String,
     dealerNumber: Number,
     isActive: Boolean,
