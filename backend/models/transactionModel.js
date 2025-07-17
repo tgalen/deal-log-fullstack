@@ -19,4 +19,16 @@ const transactionSchema = mongoose.Schema({
   date: { type: Date, required: true },
 });
 
+transactionSchema.index({ date: -1 });
+transactionSchema.index({ userId: 1, date: -1 });
+transactionSchema.index({ locationId: 1, date: -1 });
+transactionSchema.index({ organizationId: 1, date: -1 });
+transactionSchema.index({ "items.productType": 1, date: -1 });
+transactionSchema.index({ "items.productName": 1, date: -1 });
+transactionSchema.index({ transactionId: 1 });
+
+// Updated compound indexes
+transactionSchema.index({ organizationId: 1, locationId: 1, date: -1 });
+transactionSchema.index({ userId: 1, locationId: 1, date: -1 });
+
 module.exports = mongoose.model("Transaction", transactionSchema);
