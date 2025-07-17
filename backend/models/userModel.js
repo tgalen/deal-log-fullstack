@@ -20,12 +20,26 @@ const userSchema = mongoose.Schema(
       required: [true, "Please add a password"],
     },
     role: {
-      type: String, //produer, sales manager, director, accounting, GM
+      type: String,
+      enum: ["employee", "dealerAdmin", "orgAdmin"],
+      default: "employee", //produer, sales manager, director, accounting, GM
     },
+    organizationId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Organization",
+      required: true,
+    },
+    primaryDealer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Dealer",
+      required: true,
+    },
+    isActove: Boolean,
   },
   {
     timestamps: true,
   }
 );
 
+// add indexes
 module.exports = mongoose.model("User", userSchema);
