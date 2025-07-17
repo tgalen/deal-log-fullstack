@@ -29,7 +29,7 @@ const userSchema = mongoose.Schema(
       ref: "Organization",
       required: true,
     },
-    primaryDealer: {
+    primaryDealerId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Dealer",
       required: true,
