@@ -9,7 +9,12 @@ const dealerSchema = mongoose.Schema(
     },
     name: String,
     dealerNumber: Number,
-    isActive: Boolean,
+    status: {
+      type: String,
+      enum: ["active", "pending", "inactive"],
+      default: "pending",
+      required: true,
+    },
     metaData: {
       address: String,
       phone: String,
