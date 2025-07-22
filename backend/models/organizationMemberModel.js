@@ -40,6 +40,11 @@ const organizationMemberSchema = mongoose.Schema(
   }
 );
 
+organizationMemberSchema.index(
+  { userId: 1, organizationId: 1 },
+  { unique: true }
+);
+
 module.exports = mongoose.model(
   "Organization Member",
   organizationMemberSchema
